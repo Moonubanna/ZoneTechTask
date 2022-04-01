@@ -33,7 +33,7 @@ const AuthLoadingScreen = ({ navigation }) => {
         style={{ marginTop: 20 }}
       />
       <Text style={{
-        color: colors.black,
+        color: colors.green900,
         fontSize: 22,
         textAlign: 'center',
         fontWeight: 'bold',

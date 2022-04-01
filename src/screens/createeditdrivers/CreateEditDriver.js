@@ -6,7 +6,6 @@ import styles from './styles';
 import commonButton from './../../common/CommonButton';
 import headerComponent from './components/HeaderComponent';
 import { HEIGHT, WIDTH } from '../../apicall/constants';
-import { TextInputMask } from 'react-native-masked-text';
 import * as Utils from '../../utils';
 import {
     storeData,
@@ -244,23 +243,6 @@ const CreateEditDriver = ({ }) => {
                             autoCapitalize={'none'}
                         />
                     </TouchableOpacity>
-                    {/* <TextInputMask
-                        type={'datetime'}
-                        options={{
-                            format: 'YYYY-MM-DD'
-                        }}
-                        value={dob}
-                        onChangeText={text => {
-                            setDob(text)
-                        }}
-                        style={{
-                            backgroundColor: colors.grey600,
-                            color: colors.green900,
-                            marginTop: 15,
-                            paddingLeft: 10,
-                            borderRadius: 5
-                        }}
-                    /> */}
                     <View
                         style={{
                             width: '100%',
