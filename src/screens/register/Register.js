@@ -9,7 +9,7 @@ import * as Utils from '../../utils';
 import {
     storeData,
     retrieveData,
-  } from './../../common/AsyncStorage';
+} from './../../common/AsyncStorage';
 // Api calling
 import * as ApiService from './../../apicall/ApiService';
 import { API } from '../../apicall/constants';
@@ -47,10 +47,10 @@ const Register = ({ }) => {
             }
             setIsLoader(true);
             let response = await ApiService.postWithoutAuthApiCall(requestData, API.APP_REGISTER_REQUEST);
-            if(response !== undefined){
-            await storeData('USERDATA', response);
-            setIsLoader(false);
-            Utils.clearStack(navigation, 'Home');
+            if (response !== undefined) {
+                await storeData('USERDATA', response);
+                setIsLoader(false);
+                Utils.clearStack(navigation, 'Home');
             } else {
                 alert('Already register or something wrong!')
             }
@@ -62,12 +62,13 @@ const Register = ({ }) => {
     return (
         <View style={styles.container}>
             <ScrollView style={{ flex: 1 }}>
-                <View style={{ flex: 1, width: WIDTH }}>
-                    <Text style={styles.textHeader}>{'REGISTER'}</Text>
+                <View style={{ flex: 1, width: '100%', marginTop: HEIGHT / 6 }}>
+                    <Text style={[styles.textHeader, { color: colors.green700 }]}>{'DELIVERY ZONE'}</Text>
+                    <Text style={[styles.textHeader, { marginTop: 10 }]}>{'REGISTER'}</Text>
                     <View style={styles.textInputView}>
                         <TextInput
                             placeholder={'Enter name'}
-                            placeholderTextColor={colors.white}
+                            placeholderTextColor={colors.green900}
                             keyboardType={'default'}
                             onChangeText={txt => {
                                 setName(txt);
@@ -76,10 +77,10 @@ const Register = ({ }) => {
                             returnKeyType="next"
                             value={name}
                             style={{
-                                width: '90%',
+                                width: '100%',
                                 minHeight: 45,
                                 maxHeight: 45,
-                                color: colors.white,
+                                color: colors.green900,
                                 backgroundColor: colors.transparent,
                                 fontSize: 14,
                                 marginLeft: 10,
@@ -91,7 +92,7 @@ const Register = ({ }) => {
                         <TextInput
                             ref={emailRef}
                             placeholder={'Enter email'}
-                            placeholderTextColor={colors.white}
+                            placeholderTextColor={colors.green900}
                             keyboardType={'default'}
                             onChangeText={txt => {
                                 setEmail(txt);
@@ -100,10 +101,10 @@ const Register = ({ }) => {
                             returnKeyType="next"
                             value={email}
                             style={{
-                                width: '90%',
+                                width: '100%',
                                 minHeight: 45,
                                 maxHeight: 45,
-                                color: colors.white,
+                                color: colors.green900,
                                 backgroundColor: colors.transparent,
                                 fontSize: 14,
                                 marginLeft: 10,
@@ -116,7 +117,7 @@ const Register = ({ }) => {
                         <TextInput
                             ref={passRef}
                             placeholder={'Enter password'}
-                            placeholderTextColor={colors.white}
+                            placeholderTextColor={colors.green900}
                             keyboardType={'default'}
                             onChangeText={txt => {
                                 setPassword(txt);
@@ -125,15 +126,16 @@ const Register = ({ }) => {
                             returnKeyType="next"
                             value={password}
                             style={{
-                                width: '90%',
+                                width: '100%',
                                 minHeight: 45,
                                 maxHeight: 45,
-                                color: colors.white,
+                                color: colors.green900,
                                 backgroundColor: colors.transparent,
                                 fontSize: 14,
                                 marginLeft: 10,
                             }}
                             autoCapitalize={'none'}
+                            secureTextEntry={true}
                         />
                     </View>
 
@@ -141,7 +143,7 @@ const Register = ({ }) => {
                         <TextInput
                             ref={cPassRef}
                             placeholder={'Enter confirm password'}
-                            placeholderTextColor={colors.white}
+                            placeholderTextColor={colors.green900}
                             keyboardType={'default'}
                             onChangeText={txt => {
                                 setCPassword(txt);
@@ -149,10 +151,10 @@ const Register = ({ }) => {
                             returnKeyType="done"
                             value={cPassword}
                             style={{
-                                width: '90%',
+                                width: '100%',
                                 minHeight: 45,
                                 maxHeight: 45,
-                                color: colors.white,
+                                color: colors.green900,
                                 backgroundColor: colors.transparent,
                                 fontSize: 14,
                                 marginLeft: 10,
@@ -176,19 +178,19 @@ const Register = ({ }) => {
                 </View>
             </ScrollView>
             {isLoader &&
-            <View style={{
-                flex: 1,
-                marginTop: HEIGHT / 2,
-                position: 'absolute',
-                backgroundColor: colors.transparent,
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}>
-                <ActivityIndicator
-                    animating={isLoader}
-                    color={colors.orange600}
-                    size={'large'}
-                />
+                <View style={{
+                    flex: 1,
+                    marginTop: HEIGHT / 2,
+                    position: 'absolute',
+                    backgroundColor: colors.transparent,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}>
+                    <ActivityIndicator
+                        animating={isLoader}
+                        color={colors.orange600}
+                        size={'large'}
+                    />
                 </View>
             }
         </View>

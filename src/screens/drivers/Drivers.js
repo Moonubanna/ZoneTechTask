@@ -91,6 +91,7 @@ const Drivers = ({ }) => {
                     data={driverList}
                     renderItem={({ item, index }) => childComponent(item, index, pressEdit, pressDelete)}
                     keyExtractor={(item, index) => item.id}
+                    showsVerticalScrollIndicator={false}
                 />
             </View>
             {isLoader &&

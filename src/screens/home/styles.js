@@ -6,10 +6,11 @@ export default StyleSheet.create({
     backgroundColor: colors.white,
     flex: 1,
     alignItems: 'center',
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+    justifyContent: 'center'
   },
   textHeader: {
-    color: colors.black,
+    color: colors.green500,
     fontSize: 22,
     textAlign: 'center',
     fontWeight: 'bold',

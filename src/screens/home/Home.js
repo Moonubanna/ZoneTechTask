@@ -49,7 +49,8 @@ const Home = ({ }) => {
     }
     return (
         <View style={styles.container}>
-            <Text style={styles.textHeader}>{'HOME'}</Text>
+                <Text style={[styles.textHeader,{color: colors.green700}]}>{'DELIVERY ZONE'}</Text>
+            <Text style={[styles.textHeader, { marginTop: 10}]}>{'HOME'}</Text>
             <View
                 style={{
                     width: '100%',

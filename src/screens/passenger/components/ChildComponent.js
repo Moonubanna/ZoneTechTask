@@ -21,12 +21,12 @@ export default ChildComponent;
 
 const styles = StyleSheet.create({
     textName: {
-        color: colors.black,
+        color: colors.green900,
         fontSize: 16,
         textAlign: 'center',
     },
     textEmail: {
-        color: colors.grey100,
+        color: colors.green500,
         fontSize: 11,
         textAlign: 'center',
     },
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: WIDTH,
         padding: 15,
-        backgroundColor: colors.grey500,
+        backgroundColor: colors.green100,
         marginTop: 10,
         alignItems: 'flex-start'
     },

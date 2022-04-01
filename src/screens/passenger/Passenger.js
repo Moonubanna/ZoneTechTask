@@ -30,6 +30,7 @@ const Passenger = ({ }) => {
 
     useEffect(() => {
         currentPage = 0;
+        setIsLoader(true);
         callPassengerListApi();
     }, [])
     const pressBack = () => {
@@ -37,16 +38,17 @@ const Passenger = ({ }) => {
     }
 
     const callPassengerListApi = async () => {
-        setIsLoader(true);
-        let apiURL = API.APP_PASSENGER_REQUEST + 'page=' + currentPage + '@size=10'
+        let apiURL = API.APP_PASSENGER_REQUEST + 'page=' + currentPage + '&size=10'
         let response = await ApiService.getApiWithoutAuthCall(apiURL);
         setIsLoader(false);
         setLoaderPagination(false);
         if (response !== undefined) {
             if (currentPage === 0) {
                 setPassengerList(response?.data);
+                currentPage = currentPage + 1;
             } else {
                 setPassengerList([...passengerList, ...response?.data]);
+                currentPage = currentPage + 1;
             }
         } else {
             setEnded(true);
@@ -56,15 +58,18 @@ const Passenger = ({ }) => {
     const callPageLoadingApi = () => {
         if (!ended) {
             setLoaderPagination(true);
-            currentPage = currentPage + 1;
             callPassengerListApi()
         }
     }
     return (
         <View style={styles.container}>
             {headerComponent(pressBack)}
-            <View style={{ flex: 1,marginBottom: 10 }}>
+            <View style={{ 
+                flex: 1,
+            //marginBottom: 10 
+            }}>
                 <FlatList
+                key={'passengerFlatList'}
                     data={passengerList}
                     renderItem={({ item, index }) => childComponent(item, index)}
                     keyExtractor={(item, index) => item.id}
@@ -74,26 +79,6 @@ const Passenger = ({ }) => {
                     onMomentumScrollBegin={() => {
                         onEndReachedCalledDuringMomentum = false;
                     }}
-                    // onEndReached={distanceFromEnd => {
-                    //     if (!onEndReachedCalledDuringMomentum) {
-                    //         if (!loaderPagination) {
-                    //             console.warn(
-                    //                 'loading__page',
-                    //                 loaderPagination,
-                    //                 '__',
-                    //                 currentPage,
-                    //                 '__',
-                    //                 'end',
-                    //                 ended,
-                    //             );
-                    //             if (currentPage !== 0) {
-                    //                 console.warn('enter_1_call', currentPage);
-                    //                 callPageLoadingApi();
-                    //             }
-                    //         }
-                    //         onEndReachedCalledDuringMomentum = true;
-                    //     }
-                    // }}
                     onScroll={({ nativeEvent }) => {
                         if (isCloseToBottom(nativeEvent)) {
                             if (!onEndReachedCalledDuringMomentum) {
@@ -107,8 +92,8 @@ const Passenger = ({ }) => {
                         }
                     }}
                     removeClippedSubviews={true}
-                    maxToRenderPerBatch={10}
-
+                    maxToRenderPerBatch={2}
+                    showsVerticalScrollIndicator={false}
                 />
             </View>
             {isLoader &&
@@ -142,7 +127,7 @@ const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
 
 function renderFooter(loaderPagination) {
     if (!loaderPagination) return null;
-    return <ActivityIndicator color={'#9000FF'} size={'large'} />;
+    return <ActivityIndicator color={colors.green500} size={'large'} />;
 }
 
 export default Passenger;

@@ -6,17 +6,18 @@ export default StyleSheet.create({
     backgroundColor: colors.white,
     flex: 1,
     alignItems: 'center',
-    padding: 10
+    padding: 10,
+    justifyContent:'center'
   },
   textHeader: {
-    color: colors.black,
+    color: colors.green500,
     fontSize: 22,
     textAlign: 'center',
     fontWeight: 'bold',
   },
   textInputView: {
     width: '100%',
-    backgroundColor: colors.grey600,
+    backgroundColor: colors.green100,
     borderRadius: 5,
     marginTop: 15,
   }

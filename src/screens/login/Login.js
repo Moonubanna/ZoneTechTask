@@ -48,12 +48,13 @@ const Login = ({ }) => {
     }
     return (
         <View style={styles.container}>
-            <Text style={styles.textHeader}>{'LOGIN'}</Text>
+            <Text style={[styles.textHeader,{color: colors.green700}]}>{'DELIVERY ZONE'}</Text>
+            <Text style={[styles.textHeader, { marginTop: 10}]}>{'LOGIN'}</Text>
             <View style={styles.textInputView}>
                 <TextInput
                     ref={emailRef}
                     placeholder={'Enter email'}
-                    placeholderTextColor={colors.white}
+                    placeholderTextColor={colors.green900}
                     keyboardType={'default'}
                     onChangeText={txt => {
                         setEmail(txt);
@@ -65,7 +66,7 @@ const Login = ({ }) => {
                         width: '90%',
                         minHeight: 45,
                         maxHeight: 45,
-                        color: colors.white,
+                        color: colors.green900,
                         backgroundColor: colors.transparent,
                         fontSize: 14,
                         marginLeft: 10,
@@ -78,7 +79,7 @@ const Login = ({ }) => {
                 <TextInput
                     ref={passRef}
                     placeholder={'Enter password'}
-                    placeholderTextColor={colors.white}
+                    placeholderTextColor={colors.green900}
                     keyboardType={'default'}
                     onChangeText={txt => {
                         setPassword(txt);
@@ -89,7 +90,7 @@ const Login = ({ }) => {
                         width: '90%',
                         minHeight: 45,
                         maxHeight: 45,
-                        color: colors.white,
+                        color: colors.green900,
                         backgroundColor: colors.transparent,
                         fontSize: 14,
                         marginLeft: 10,

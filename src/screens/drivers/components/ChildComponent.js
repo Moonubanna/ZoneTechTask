@@ -46,7 +46,7 @@ const ChildComponent = (item, index, pressEdit, pressDelete) => {
                         marginTop: 10
                     },
                 ]}>
-                <Text style={[styles.textButton, {}]}>{'Dlete'}</Text>
+                <Text style={[styles.textButton, {color: colors.white}]}>{'Dlete'}</Text>
             </Pressable>
             </View>
         </View>
@@ -57,12 +57,12 @@ export default ChildComponent;
 
 const styles = StyleSheet.create({
     textName: {
-        color: colors.black,
+        color: colors.green900,
         fontSize: 16,
         textAlign: 'center',
     },
     textEmail: {
-        color: colors.grey100,
+        color: colors.green600,
         fontSize: 11,
         textAlign: 'center',
     },
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         padding: 10,
-        backgroundColor: colors.grey500,
+        backgroundColor: colors.green100,
         marginBottom: 10
     },
     leftCompoent: {

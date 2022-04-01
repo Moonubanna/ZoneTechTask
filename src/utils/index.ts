@@ -33,3 +33,11 @@ export function clearStack(navigation, screenName) {
   });
   navigation.dispatch(resetAction);
 }
+
+export const convertDateObjFormat = (dateTime, forShowFormat) => {
+  var showDateValue = '';
+  if (dateTime !== null || dateTime !== undefined) {
+    showDateValue = moment(dateTime).format(forShowFormat);
+  }
+  return showDateValue;
+};

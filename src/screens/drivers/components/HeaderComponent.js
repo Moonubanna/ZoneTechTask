@@ -42,7 +42,7 @@ export default HeaderComponent;
 
 const styles = StyleSheet.create({
     textBack: {
-        color: colors.black,
+        color: colors.green900,
         fontSize: 16,
         textAlign: 'center',
     },
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: WIDTH,
         padding: 10,
-        backgroundColor: colors.grey500,
+        backgroundColor: colors.green500,
         alignItems: 'center',
         justifyContent: 'space-between'
     }
