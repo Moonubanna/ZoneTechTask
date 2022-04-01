@@ -7,106 +7,83 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
 import {
   SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
   View,
+  StyleSheet,
+  StatusBar
 } from 'react-native';
+import { colors } from './src/common/theme';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+//Screens
+import Splash from './src/common/AuthLoadingScreen';
+import Login from './src/screens/login';
+import Register from './src/screens/register';
+import Home from './src/screens/home';
+import Drivers from './src/screens/drivers';
+import Passenger from './src/screens/passenger';
+import CreateEditDriver from './src/screens/createeditdrivers';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const App = () => {
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
+  const RootStack = createStackNavigator();
+  return(
+    <SafeAreaView style={styles.safeContainer}>
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={colors.green500}
+      />
+      <NavigationContainer>
+      <RootStack.Navigator
+            //headerShown={false}
+            screenOptions={{animationEnabled: false}}
+            initialRouteName="Splash">
+            <RootStack.Screen
+              name="Splash"
+              component={Splash}
+              options={{headerShown: false}}
+            />
+            <RootStack.Screen
+              name="Login"
+              component={Login}
+              options={{headerShown: false}}
+            />
+            <RootStack.Screen
+              name="Register"
+              component={Register}
+              options={{headerShown: false}}
+            />
+            <RootStack.Screen
+              name="Home"
+              component={Home}
+              options={{headerShown: false}}
+            />
+            <RootStack.Screen
+              name="Drivers"
+              component={Drivers}
+              options={{headerShown: false}}
+            />
+            <RootStack.Screen
+              name="Passenger"
+              component={Passenger}
+              options={{headerShown: false}}
+            />
+            <RootStack.Screen
+              name="CreateEditDriver"
+              component={CreateEditDriver}
+              options={{headerShown: false}}
+            />
+          </RootStack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  safeContainer: {
+    flex: 1,
+    backgroundColor: colors.color_primary,
   },
 });
-
 export default App;
