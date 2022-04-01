@@ -16,6 +16,8 @@ export default StyleSheet.create({
   },
   textInputView: {
     width: WIDTH - 20,
+    height: 45,
+    justifyContent: 'center',
     backgroundColor: colors.green100,
     borderRadius: 5,
     marginTop: 15,

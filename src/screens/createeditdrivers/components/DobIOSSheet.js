@@ -1,11 +1,10 @@
-
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
 import BottomSheet from 'react-native-raw-bottom-sheet';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import commonButton from './../../../common/CommonButton';
-import { colors } from '../../../common/theme';
+import {colors} from '../../../common/theme';
 
 const CommonDOBActionSheet = (
   actionSheetRef,
@@ -42,7 +41,7 @@ const CommonDOBActionSheet = (
           display="spinner"
           onChange={onChange}
           themeVariant="dark"
-          maximumDate={new Date()}
+          //maximumDate={new Date()}
           neutralButtonLabel="clear"
         />
         <View style={styles.bottomView}>
