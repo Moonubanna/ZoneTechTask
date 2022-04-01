@@ -198,6 +198,7 @@ const CreateEditDriver = ({ }) => {
                             setDob(text)
                         }}
                         style={{
+                            height: 45,
                             backgroundColor: colors.grey600,
                             color: colors.white,
                             marginTop: 15,
